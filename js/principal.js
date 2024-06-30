@@ -28,11 +28,11 @@ espectaculo.procesarEspecta(espect4);
 
 let salida = document.getElementById("salida");
 salida.innerHTML = `
-<br> El espectador Ana debe canselar: ${espectaculo.nuevoPreEntra()}$
-<br> El espectador Luis debe canselar: ${espectaculo.nuevoPreEntra()}$
-<br> El espectador Valeria debe canselar: ${espectaculo.nuevoPreEntra()}$
-<br> El espectador Fabian debe cancelas: ${espectaculo.nuevoPreEntra()}$
-<br> 
+<br> El espectador Ana debe canselar: ${espectaculo.precioCancelar(espect1)}$
+<br> El espectador Luis debe canselar: ${espectaculo.precioCancelar(espect2)}$
+<br> El espectador Valeria debe canselar: ${espectaculo.precioCancelar(espect3)}$
+<br> El espectador Fabian debe cancelar: ${espectaculo.precioCancelar(espect4)}$
+<br> Promedio de las Ventas hechas a espectadores adolecentes: ${espectaculo.promedioAdole()}
 <br> Entre niños y adolecentes el espectador que asistio mas el circo fue: ${espectaculo.porcentajeAsisMayor()}
-<br> 
+<br> Porcentaje que representa la cantidad de niños que aistieron al Circo: ${espectaculo.porcentajeAsisNinio()}%
 `

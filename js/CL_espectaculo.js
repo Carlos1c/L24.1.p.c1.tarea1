@@ -6,15 +6,22 @@ export default class CL_espectaculo {
         this.cntAdole = 0;
         this.cntAdulto = 0;
         this.acEdad = 0;
+        this.nuevoPreEntra = 0;
+        this.descuento = 0;
     }
 
     procesarEspecta(espectador) {
         this.acEdad += espectador.edad;
         this.cntEspecta++;
+        
+        this.descuento = this.precioEntrada * 10 / 100;
+        
+        this.nuevoPreEntra = this.precioEntrada - this.descuento;
+        
         if (espectador.edad <= 12) {
             this.cntNinio++;
         }
-        if (espectador.edad <= 18) {
+        if (espectador.edad <= 18 && espectador.edad > 12) {
             this.cntAdole++;
         }
         if (espectador.edad > 18) {
@@ -22,20 +29,21 @@ export default class CL_espectaculo {
         }
     }
 
-    descuento() {
-        if (this.cntNinio) {
-            return this.precioEntrada * 10 / 100;
+    nuevoPreEntra() {
+        return this.precioEntrada - this.descuento();
+    }
+
+    precioCancelar(espectador) {
+        if (espectador.edad <= 18) {
+            return this.nuevoPreEntra;
         }
-        if (this.cntAdole) {
-            return this.precioEntrada * 10 / 100;
-        }
-        if (this.cntAdulto) {
-            return 0;
+        if (espectador.edad > 18) {
+            return this.precioEntrada;
         }
     }
 
-    nuevoPreEntra() {
-        return this.precioEntrada - this.descuento();
+    promedioAdole() {
+        return this.cntAdole * this.nuevoPreEntra;
     }
 
     porcentajeAsisNinio() {
